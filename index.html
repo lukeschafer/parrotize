@@ -53,9 +53,9 @@ function transform() {
 	 * add more characters and they will be accounted for automatically
 	 * note: the extra &nbsp; is to account for the value range inclusive of 100%
 	 */
-	var chars = [':partyparrot:', ':white_square:'];
+	var chars = [':white_square:', ':partyparrot:'];
 	var charLen = chars.length-1;
-	function getChar(val) { return chars[val < parseInt(document.getElementById('contrast').value,10) ? 1 : 0]; }
+	function getChar(val) { return chars[val < parseInt(document.getElementById('contrast').value,10) ? 0 : 1]; }
 
 	/**
 	 * log when getUserMedia or when video metadata loading fail
@@ -175,7 +175,7 @@ console.log('ending')
 		for(var i=0; i<len; i++) {
 			if(i%width === 0) str += '\n';
 			var rgb = getRGB(i);
-			var val = (rgb[0] + rgb[1] + rgb[2]) / 3;
+			var val = Math.max(rgb[0],rgb[1],rgb[2]);
 			if(this.color) str += '<font style="color: rgb('+rgb.join(',')+')">'+getChar(val)+'</font>';
 			else str += getChar(val);
 		}
