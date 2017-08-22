@@ -53,7 +53,7 @@ function transform() {
 	 * add more characters and they will be accounted for automatically
 	 * note: the extra &nbsp; is to account for the value range inclusive of 100%
 	 */
-	var chars = [':white_square:', ':partyparrot:'];
+	var chars = [':partyparrot:', ':white_square:'];
 	var charLen = chars.length-1;
 	function getChar(val) { return chars[val < parseInt(document.getElementById('contrast').value,10) ? 0 : 1]; }
 
