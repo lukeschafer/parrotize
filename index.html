@@ -55,7 +55,7 @@ function transform() {
 	 */
 	var chars = [':partyparrot:', ':white_square:'];
 	var charLen = chars.length-1;
-	function getChar(val) { return chars[val < document.getElementById('contrast').value ? 1 : 0]; }
+	function getChar(val) { return chars[val < parseInt(document.getElementById('contrast').value,10) ? 1 : 0]; }
 
 	/**
 	 * log when getUserMedia or when video metadata loading fail
