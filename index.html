@@ -8,6 +8,7 @@ Paste an image on this page! Note: max width of 16px will be rendered, so pick a
 <p>
 <strong>Why?</strong> Because I can.
 </p>
+Contrast (0..255)<input type='number' value='128' id='contrast'><br />
 <img id='input' style='border: solid 1px red; min-width:50px; min-height: 50px;' >
 <pre id='output' style='border:solid 1px black;'></pre>
 </body>
@@ -54,7 +55,7 @@ function transform() {
 	 */
 	var chars = [':partyparrot:', ':white_square:'];
 	var charLen = chars.length-1;
-	function getChar(val) { return chars[val < 128 ? 1 : 0]; }
+	function getChar(val) { return chars[val < document.getElementById('contrast').value ? 1 : 0]; }
 
 	/**
 	 * log when getUserMedia or when video metadata loading fail
